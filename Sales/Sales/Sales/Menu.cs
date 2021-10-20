@@ -8,6 +8,13 @@ namespace Sales.Sales
 {
     class Menu
     {
+        private Controller controller;
+
+        public Menu(Controller controller)
+        {
+            this.controller = controller;
+        }
+
         public void firstMenu()
         {
             Console.Clear();
@@ -37,7 +44,8 @@ namespace Sales.Sales
                 switch (id)
                 {
                     case 1:
-                        Console.WriteLine("Data-Entry");
+                        //Console.WriteLine("Data-Entry");
+                        controller.Create();
                         break;
                     case 2:
                         Console.Clear();

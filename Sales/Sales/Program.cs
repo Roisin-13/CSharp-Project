@@ -13,7 +13,10 @@ namespace Sales
         }
         public static void firstMenu()
         {
-            Menu menu = new Menu();
+            Menu menu = new Menu(new Controller(
+                new Services(
+                    new Repository())));
+            
             menu.firstMenu();
         }
 
