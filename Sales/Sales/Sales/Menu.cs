@@ -79,7 +79,8 @@ namespace Sales.Sales
                             switch (id2)
                             {
                                 case 1:
-                                    Console.WriteLine("list sales by year");
+                                    //Console.WriteLine("list sales by year");
+                                    controller.ReadByYear();
                                     break;
                                 case 2:
                                     Console.WriteLine("list sales by month & year");

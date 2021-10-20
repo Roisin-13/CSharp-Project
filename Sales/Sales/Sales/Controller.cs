@@ -47,7 +47,28 @@ namespace Sales.Sales
 
         }
 
+        //==============ALL THE READ METHODS===============//
+        //-----read by year------//
+        public void ReadByYear()
+        {
 
+            Console.WriteLine("Please enter Year of items you want to list:");
+            string inputYear = Console.ReadLine();
+            var year = int.TryParse(inputYear, out int y1);
+            if (year)
+            {
+                
+                IEnumerable<SaleModel> sales = services.ReadByYear(y1);
+                foreach (var item in sales)
+                {
+                    Console.WriteLine(item);
+                };
+                
+              
+
+            }
+
+        }
 
 
 

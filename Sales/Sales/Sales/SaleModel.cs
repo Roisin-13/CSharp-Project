@@ -18,7 +18,7 @@ namespace Sales.Sales
         private double price;
         private DateTime date;
 
-        private IList<SaleModel> sales;
+        //private IList<SaleModel> sales;
         //--------get/set sale name
         public string Name
         {

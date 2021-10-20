@@ -27,6 +27,14 @@ namespace Sales.Sales
 
         }
 
+        //==============ALL THE READ METHODS===============//
+        //-----read by year------//
+        internal IEnumerable<SaleModel> ReadByYear(int y1)
+        {
+            return repository.ReadByYear(y1);
+        }
+
+
 
     }
 }
