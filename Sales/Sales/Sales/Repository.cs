@@ -75,11 +75,11 @@ namespace Sales.Sales
             connection.Close();
             return sales;
         }
+
         //-----read by year and month------//
         internal IEnumerable<SaleModel> ReadByYearMonth(int y2, int m2)
         {
             connection.Open();
-
             MySqlCommand command = connection.CreateCommand();
             command.CommandText = $"select * from sales where year(date_of_sale)='{y2}' AND month(date_of_sale)='{m2}'";
             MySqlDataReader reader = command.ExecuteReader();
@@ -99,7 +99,33 @@ namespace Sales.Sales
 
             connection.Close();
             return sales2;
+
         }
+
+        //==============ALL THE TOTAL METHODS===============//
+        //-----total by year------//
+        internal double TotalByYear(int y3)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+
+            command.CommandText = "select sum(price * quantity) from sales where year(date_of_sale)=@y3";
+  
+            command.Parameters.AddWithValue("@y3", y3);
+ 
+            command.Prepare();
+            double result = (double)command.ExecuteScalar();
+
+            
+            connection.Close();
+
+            Console.WriteLine("Total for year " + y3 + " is: £ " + result);
+            return (double)result ;
+
+        }
+
+
+
 
 
 
@@ -107,3 +133,4 @@ namespace Sales.Sales
 
     }
 }
+

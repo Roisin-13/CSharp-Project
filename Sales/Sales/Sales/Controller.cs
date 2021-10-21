@@ -62,14 +62,11 @@ namespace Sales.Sales
                 foreach (var item in sales)
                 {
                     Console.WriteLine(item);
-                };
+                }
                 
-              
-
             }
 
         }
-  
         //-----read by year and month------//
         public void ReadByYearMonth()
         {
@@ -93,6 +90,34 @@ namespace Sales.Sales
             }
 
         }
+
+        //==============ALL THE TOTAL METHODS===============//
+        //-----total by year------//
+        public void TotalByYear()
+        {
+
+            Console.WriteLine("Please enter Year of sale you want total of:");
+            string inputYear = Console.ReadLine();
+            var year = int.TryParse(inputYear, out int y3);
+            if (year)
+            {
+
+                double sales3 = services.TotalByYear(y3);
+                //foreach (var item in sales3)
+                //{
+                //    Console.WriteLine(item);
+                //}
+
+            }
+
+        }
+        
+
+
+
+
+
+
 
 
 
