@@ -33,22 +33,20 @@ namespace Sales.Sales
         {
             return repository.ReadByYear(y1);
         }
-<<<<<<< HEAD
-        //==============ALL THE TOTAL METHODS===============//
-        //-----total by year------//
-        internal IEnumerable<SaleModel> TotalByYear(int y3)
-        {
-            return repository.TotalByYear(y3);
-        }
-=======
-
         //-----read by year and month------//
         internal IEnumerable<SaleModel> ReadByYearMonth(int y2, int m2)
         {
             return repository.ReadByYearMonth(y2, m2);
         }
 
->>>>>>> fed6073f073d64d27ed08350e77c9a520a475847
+        //==============ALL THE TOTAL METHODS===============//
+        //-----total by year------//
+        //internal IEnumerable<SaleModel> TotalByYear(int y3)
+        //{
+        //    return repository.TotalByYear(y3);
+        //}
+
+
 
 
     }
