@@ -75,14 +75,20 @@ namespace Sales.Sales
             connection.Close();
             return sales;
         }
+<<<<<<< HEAD
         //==============ALL THE TOTAL METHODS===============//
         //-----total by year------//
         //internal IEnumerable<SaleModel> TotalByYear(int y3)
         internal double TotalByYear(int y3)
+=======
+        //-----read by year and month------//
+        internal IEnumerable<SaleModel> ReadByYearMonth(int y2, int m2)
+>>>>>>> fed6073f073d64d27ed08350e77c9a520a475847
         {
             connection.Open();
 
             MySqlCommand command = connection.CreateCommand();
+<<<<<<< HEAD
             command.CommandText = "select sum(price) from sales where year(date_of_sale)=@y3";
             //command.CommandText = "select @sum(price) as sum_price from sales where year(date_of_sale)=@y3";
             //command.Parameters.AddWithValue("@y3", TotalByYear(y3));
@@ -112,6 +118,26 @@ namespace Sales.Sales
             
             //return sales3;
             return result;
+=======
+            command.CommandText = $"select * from sales where year(date_of_sale)='{y2}' AND month(date_of_sale)='{m2}'";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            IList<SaleModel> sales2 = new List<SaleModel>();
+            while (reader.Read())
+            {
+                int id = reader.GetFieldValue<int>("id");
+                string name = reader.GetFieldValue<string>("name");
+                int quantity = reader.GetFieldValue<int>("quantity");
+                double price = reader.GetFieldValue<double>("price");
+                DateTime date = reader.GetFieldValue<DateTime>("date_of_sale");
+                SaleModel sale = new SaleModel()
+                { ID = id, Name = name, Quantity = quantity, Price = price, Date = date };
+                sales2.Add(sale);
+            }
+
+            connection.Close();
+            return sales2;
+>>>>>>> fed6073f073d64d27ed08350e77c9a520a475847
         }
 
 
