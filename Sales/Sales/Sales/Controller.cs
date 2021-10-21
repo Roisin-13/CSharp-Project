@@ -69,7 +69,30 @@ namespace Sales.Sales
             }
 
         }
+  
+        //-----read by year and month------//
+        public void ReadByYearMonth()
+        {
 
+            Console.WriteLine("Please enter Year of items you want to list:");
+            string inputYear = Console.ReadLine();
+            var year = int.TryParse(inputYear, out int y2);
+            Console.WriteLine("Please enter Month of items you want to list:");
+            string inputMonth = Console.ReadLine();
+            var month = int.TryParse(inputMonth, out int m2);
+            if (year && month)
+            {
+                IEnumerable<SaleModel> sales = services.ReadByYearMonth(y2, m2);
+                foreach (var item in sales)
+                {
+                    Console.WriteLine(item);
+                };
+
+
+
+            }
+
+        }
 
 
 

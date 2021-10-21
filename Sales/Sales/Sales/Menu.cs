@@ -84,6 +84,7 @@ namespace Sales.Sales
                                     break;
                                 case 2:
                                     Console.WriteLine("list sales by month & year");
+                                    controller.ReadByYearMonth();
                                     break;
                                 case 3:
                                     Console.WriteLine("total sales by year");

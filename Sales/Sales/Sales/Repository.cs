@@ -75,7 +75,31 @@ namespace Sales.Sales
             connection.Close();
             return sales;
         }
+        //-----read by year and month------//
+        internal IEnumerable<SaleModel> ReadByYearMonth(int y2, int m2)
+        {
+            connection.Open();
 
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = $"select * from sales where year(date_of_sale)='{y2}' AND month(date_of_sale)='{m2}'";
+            MySqlDataReader reader = command.ExecuteReader();
+
+            IList<SaleModel> sales2 = new List<SaleModel>();
+            while (reader.Read())
+            {
+                int id = reader.GetFieldValue<int>("id");
+                string name = reader.GetFieldValue<string>("name");
+                int quantity = reader.GetFieldValue<int>("quantity");
+                double price = reader.GetFieldValue<double>("price");
+                DateTime date = reader.GetFieldValue<DateTime>("date_of_sale");
+                SaleModel sale = new SaleModel()
+                { ID = id, Name = name, Quantity = quantity, Price = price, Date = date };
+                sales2.Add(sale);
+            }
+
+            connection.Close();
+            return sales2;
+        }
 
 
 
