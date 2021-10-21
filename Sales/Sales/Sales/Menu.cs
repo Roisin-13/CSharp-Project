@@ -48,7 +48,6 @@ namespace Sales.Sales
                 switch (id)
                 {
                     case 1:
-                        //Console.WriteLine("Data-Entry");
                         controller.Create();
                         break;
                     case 2:
@@ -79,19 +78,15 @@ namespace Sales.Sales
                             switch (id2)
                             {
                                 case 1:
-                                    //Console.WriteLine("list sales by year");
                                     controller.ReadByYear();
                                     break;
                                 case 2:
-                                    //Console.WriteLine("list sales by month & year");
                                     controller.ReadByYearMonth();
                                     break;
                                 case 3:
-                                    //Console.WriteLine("total sales by year");
                                     controller.TotalByYear();
                                     break;
                                 case 4:
-                                    //Console.WriteLine("total sales by month and year");
                                     controller.TotalByYearMonth();
                                     break;
                                 case 5:

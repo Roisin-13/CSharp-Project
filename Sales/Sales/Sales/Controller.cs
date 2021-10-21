@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 
 using System.IO;
 using Sales.Utils;
+using Sales.Exceptions;
 
 namespace Sales.Sales
 {
@@ -29,7 +30,7 @@ namespace Sales.Sales
             Console.WriteLine("Please enter price of product (in pounds and pence):");
             string priceInput = Console.ReadLine();
             var price = double.Parse(priceInput);
-            Console.WriteLine("Please enter date product was purchased:");
+            Console.WriteLine("Please enter date product was purchased (DD/MM/YYYY):");
             string dateInput = Console.ReadLine();
             var a = DateTime.TryParse(dateInput, out DateTime date);
             if (!a)
@@ -48,33 +49,44 @@ namespace Sales.Sales
         }
 
         //==============ALL THE READ METHODS===============//
+
+
+
         //-----read by year------//
         public void ReadByYear()
         {
 
-            Console.WriteLine("Please enter Year of items you want to list:");
+            Console.WriteLine("Please enter Year of items you want to list (YYYY):");
             string inputYear = Console.ReadLine();
+            //var year =
             var year = int.TryParse(inputYear, out int y1);
             if (year)
             {
                 
-                IEnumerable<SaleModel> sales = services.ReadByYear(y1);
+                    IEnumerable<SaleModel> sales = services.ReadByYear(y1);
                 foreach (var item in sales)
                 {
-                    Console.WriteLine(item);
-                }
-                
-            }
+                    try
+                    {
+                        Console.WriteLine(item);
+                    }
+                    catch (ItemNotFoundException)
+                    {
+                        Console.WriteLine($"no items from {y1} year");
+                    }
 
+                }
+
+            }
         }
         //-----read by year and month------//
         public void ReadByYearMonth()
         {
 
-            Console.WriteLine("Please enter Year of items you want to list:");
+            Console.WriteLine("Please enter Year of items you want to list (YYYY):");
             string inputYear = Console.ReadLine();
             var year = int.TryParse(inputYear, out int y2);
-            Console.WriteLine("Please enter Month of items you want to list:");
+            Console.WriteLine("Please enter Month of items you want to list (MM):");
             string inputMonth = Console.ReadLine();
             var month = int.TryParse(inputMonth, out int m2);
             if (year && month)
@@ -96,7 +108,7 @@ namespace Sales.Sales
         public void TotalByYear()
         {
 
-            Console.WriteLine("Please enter Year of sale you want total of:");
+            Console.WriteLine("Please enter Year of sale you want total of (YYYY):");
             string inputYear = Console.ReadLine();
             var year = int.TryParse(inputYear, out int y3);
             if (year)
@@ -115,10 +127,10 @@ namespace Sales.Sales
         public void TotalByYearMonth()
         {
 
-            Console.WriteLine("Please enter Year of sale you want total of:");
+            Console.WriteLine("Please enter Year of sale you want total of (YYYY):");
             string inputYear = Console.ReadLine();
             var year = int.TryParse(inputYear, out int y4);
-            Console.WriteLine("Please enter Month of items you want total of:");
+            Console.WriteLine("Please enter Month of items you want total of (MM):");
             string inputMonth = Console.ReadLine();
             var month = int.TryParse(inputMonth, out int m4);
             if (year && month)
