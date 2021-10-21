@@ -45,7 +45,11 @@ namespace Sales.Sales
         {
             return repository.TotalByYear(y3);
         }
-
+        //-----total by year and month------//
+        internal double TotalByYearMonth(int y4, int m4)
+        {
+            return repository.TotalByYearMonth(y4, m4);
+        }
 
 
 

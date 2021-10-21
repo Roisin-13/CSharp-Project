@@ -111,7 +111,25 @@ namespace Sales.Sales
             }
 
         }
-        
+        //-----total by year and month------//
+        public void TotalByYearMonth()
+        {
+
+            Console.WriteLine("Please enter Year of sale you want total of:");
+            string inputYear = Console.ReadLine();
+            var year = int.TryParse(inputYear, out int y4);
+            Console.WriteLine("Please enter Month of items you want total of:");
+            string inputMonth = Console.ReadLine();
+            var month = int.TryParse(inputMonth, out int m4);
+            if (year && month)
+            {
+
+                double sales4 = services.TotalByYearMonth(y4, m4);
+
+            }
+
+        }
+
 
 
 

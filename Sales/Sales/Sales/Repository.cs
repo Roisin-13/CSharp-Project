@@ -123,7 +123,27 @@ namespace Sales.Sales
             return (double)result ;
 
         }
+        //-----total by year and month------//
+        internal double TotalByYearMonth(int y4, int m4)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
 
+            command.CommandText = "select sum(price * quantity) from sales where year(date_of_sale)=@y4 AND month(date_of_sale)=@m4";
+
+            command.Parameters.AddWithValue("@y4", y4);
+            command.Parameters.AddWithValue("@m4", m4);
+
+            command.Prepare();
+            double result = (double)command.ExecuteScalar();
+
+
+            connection.Close();
+
+            Console.WriteLine("Total for year and month " + m4 + "/" + y4 + " is: £ " + result);
+            return (double)result;
+
+        }
 
 
 

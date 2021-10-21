@@ -91,7 +91,8 @@ namespace Sales.Sales
                                     controller.TotalByYear();
                                     break;
                                 case 4:
-                                    Console.WriteLine("total sales by month and year");
+                                    //Console.WriteLine("total sales by month and year");
+                                    controller.TotalByYearMonth();
                                     break;
                                 case 5:
                                     inMenu2 = false;
