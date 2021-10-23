@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 
 using System.IO;
 using Sales.Utils;
+using Sales.Exceptions;
 
 namespace Sales.Sales
 {
@@ -18,7 +19,6 @@ namespace Sales.Sales
         private double price;
         private DateTime date;
 
-        //private IList<SaleModel> sales;
         //--------get/set sale name
         public string Name
         {

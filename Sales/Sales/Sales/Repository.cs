@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using Sales.Utils;
 using System.Data;
+using Sales.Exceptions;
 
 namespace Sales.Sales
 {
@@ -15,6 +16,8 @@ namespace Sales.Sales
     {
 
         private readonly MySqlConnection connection;
+       
+
         //public MySqlConnection connection { get; }
         public Repository(MySqlConnection mySqlConnection)
         {
@@ -49,33 +52,41 @@ namespace Sales.Sales
 
         }
         //==============ALL THE READ METHODS===============//
-
         //-----read by year------//
         internal IEnumerable<SaleModel> ReadByYear(int y1)
         {
-            connection.Open();
 
-            MySqlCommand command = connection.CreateCommand();
+
+            using MySqlCommand command = connection.CreateCommand();
+
+            connection.Open();
             command.CommandText = $"select * from sales where year(date_of_sale)='{y1}'";
             MySqlDataReader reader = command.ExecuteReader();
-
             IList<SaleModel> sales = new List<SaleModel>();
-            while (reader.Read())
+            connection.Close();
+            try 
             {
+                reader.Read();
                 int id = reader.GetFieldValue<int>("id");
-                string name = reader.GetFieldValue<string>("name");
-                int quantity = reader.GetFieldValue<int>("quantity");
-                double price = reader.GetFieldValue<double>("price");
-                DateTime date = reader.GetFieldValue<DateTime>("date_of_sale");
-                SaleModel sale = new SaleModel()
-                { ID = id, Name = name, Quantity = quantity, Price = price, Date = date };
-                sales.Add(sale);
+                    string name = reader.GetFieldValue<string>("name");
+                    int quantity = reader.GetFieldValue<int>("quantity");
+                    double price = reader.GetFieldValue<double>("price");
+                    DateTime date = reader.GetFieldValue<DateTime>("date_of_sale");
+                    SaleModel sale = new SaleModel()
+                    { ID = id, Name = name, Quantity = quantity, Price = price, Date = date };
+                    sales.Add(sale);
+
+            }
+            catch
+            {
+                Console.WriteLine("No sales for " + y1 + " year");
+                return null;
             }
 
-            connection.Close();
             return sales;
-        }
 
+        }
+      
         //-----read by year and month------//
         internal IEnumerable<SaleModel> ReadByYearMonth(int y2, int m2)
         {
@@ -85,8 +96,9 @@ namespace Sales.Sales
             MySqlDataReader reader = command.ExecuteReader();
 
             IList<SaleModel> sales2 = new List<SaleModel>();
-            while (reader.Read())
+            try
             {
+                reader.Read();
                 int id = reader.GetFieldValue<int>("id");
                 string name = reader.GetFieldValue<string>("name");
                 int quantity = reader.GetFieldValue<int>("quantity");
@@ -95,16 +107,22 @@ namespace Sales.Sales
                 SaleModel sale = new SaleModel()
                 { ID = id, Name = name, Quantity = quantity, Price = price, Date = date };
                 sales2.Add(sale);
+                
             }
-
-            connection.Close();
+              catch
+            {
+                Console.WriteLine("No sales " + m2 + "/" + y2);
+                return null;
+            }
             return sales2;
+
 
         }
 
         //==============ALL THE TOTAL METHODS===============//
         //-----total by year------//
-        internal double TotalByYear(int y3)
+     
+        internal double? TotalByYear(int y3)
         {
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
@@ -114,17 +132,25 @@ namespace Sales.Sales
             command.Parameters.AddWithValue("@y3", y3);
  
             command.Prepare();
-            double result = (double)command.ExecuteScalar();
 
-            
+            var result = command.ExecuteScalar();
             connection.Close();
+            try {
+                Console.WriteLine("Total for year " + y3 + " is: £ " + result);
+                return (double)result;
+                
+            } catch 
+            {
+                Console.WriteLine("No sales for " + y3 + " year");
+                return null;
 
-            Console.WriteLine("Total for year " + y3 + " is: £ " + result);
-            return (double)result ;
+            }
+
 
         }
+
         //-----total by year and month------//
-        internal double TotalByYearMonth(int y4, int m4)
+        internal double? TotalByYearMonth(int y4, int m4)
         {
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
@@ -135,15 +161,29 @@ namespace Sales.Sales
             command.Parameters.AddWithValue("@m4", m4);
 
             command.Prepare();
-            double result = (double)command.ExecuteScalar();
+            var result = command.ExecuteScalar();
 
 
             connection.Close();
-
-            Console.WriteLine("Total for year and month " + m4 + "/" + y4 + " is: £ " + result);
-            return (double)result;
+            try
+            {
+                Console.WriteLine("Total for year and month " + m4 + "/" + y4 + " is: £ " + result);
+                return (double)result;
+                
+            }
+            catch
+            {
+                Console.WriteLine("No sales " + m4 + "/" + y4);
+                return null;
+            }
+            
 
         }
+
+
+
+
+
 
 
 
