@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 
 using System.IO;
 using Sales.Utils;
+using Sales.Exceptions;
 
 namespace Sales.Sales
 {
@@ -23,7 +24,15 @@ namespace Sales.Sales
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set {
+                if (value == string.Empty || value == null)
+                {
+                    throw new ItemNotFoundException("You must enter valid product name");
+                }else
+                {
+                    name = value;
+                }
+            }
         }
         //--------get/set sale quantity
         public int Quantity

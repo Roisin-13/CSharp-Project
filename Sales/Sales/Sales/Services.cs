@@ -41,12 +41,12 @@ namespace Sales.Sales
 
         //==============ALL THE TOTAL METHODS===============//
         //-----total by year------//
-        internal double TotalByYear(int y3)
+        internal double? TotalByYear(int y3)
         {
             return repository.TotalByYear(y3);
         }
         //-----total by year and month------//
-        internal double TotalByYearMonth(int y4, int m4)
+        internal double? TotalByYearMonth(int y4, int m4)
         {
             return repository.TotalByYearMonth(y4, m4);
         }
