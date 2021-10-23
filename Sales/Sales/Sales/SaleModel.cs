@@ -19,20 +19,11 @@ namespace Sales.Sales
         private double price;
         private DateTime date;
 
-        //private IList<SaleModel> sales;
         //--------get/set sale name
         public string Name
         {
             get { return name; }
-            set {
-                if (value == string.Empty || value == null)
-                {
-                    throw new ItemNotFoundException("You must enter valid product name");
-                }else
-                {
-                    name = value;
-                }
-            }
+            set { name = value; }
         }
         //--------get/set sale quantity
         public int Quantity

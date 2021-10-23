@@ -52,20 +52,6 @@ namespace Sales.Sales
 
         }
         //==============ALL THE READ METHODS===============//
-        //internal bool Exists(int y1)
-        //{
-        //    connection.Open();
-
-        //    MySqlCommand command = connection.CreateCommand();
-        //    command.CommandText = "select count(*) from sales where year(date_of_sale)=@y1";
-        //    command.Parameters.AddWithValue("@y1", y1);
-        //    command.Prepare();
-        //    int result = Convert.ToInt32(command.ExecuteScalar());
-
-        //    connection.Close();
-
-        //    return result > 0;
-        //}
         //-----read by year------//
         internal IEnumerable<SaleModel> ReadByYear(int y1)
         {
