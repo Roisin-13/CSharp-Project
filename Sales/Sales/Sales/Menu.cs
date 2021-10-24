@@ -120,16 +120,19 @@ namespace Sales.Sales
                                         switch (id3)
                                         {
                                             case 1:
-                                                Console.WriteLine("list all sales between specified year range");
+                                                //Console.WriteLine("list all sales between specified year range");
+                                                controller.ListBetweenYears();
                                                 break;
                                             case 2:
                                                 Console.WriteLine("list all sales between specified months and years");
                                                 break;
                                             case 3:
-                                                Console.WriteLine("average sales for a month between specified year range");
+                                                //Console.WriteLine("average sales for a month between specified year range");
+                                                controller.MonthAverage();
                                                 break;
                                             case 4:
-                                                Console.WriteLine("average sale by month for specified year");
+                                                //Console.WriteLine("average sale by month for specified year");
+                                                controller.YearByMonthAverage();
                                                 break;
                                             case 5:
                                                 inMenu3 = false;

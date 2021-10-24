@@ -51,7 +51,22 @@ namespace Sales.Sales
             return repository.TotalByYearMonth(y4, m4);
         }
 
-
+        //==============ALL THE EXTRA METHODS===============//  
+        //-----list between years------//
+        internal IEnumerable<SaleModel> ListBetweenYears(int ys1, int ye1)
+        {
+            return repository.ListBetweenYears(ys1, ye1);
+        }
+        //-----average sales for a month between specified year range------//
+        internal double? MonthAverage(int ys3, int ye3, int m3)
+        {
+            return repository.MonthAverage(ys3, ye3, m3);
+        }
+        //-----average sales for by month for a year------//
+        internal double? YearByMonthAverage(int y4)
+        {
+            return repository.YearByMonthAverage(y4);
+        }
 
     }
 }
