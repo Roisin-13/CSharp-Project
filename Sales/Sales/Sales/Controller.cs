@@ -155,8 +155,11 @@ namespace Sales.Sales
 
         }
 
-
-
+        //Console.WriteLine("1. list all sales between specified year range");
+        //                            Console.WriteLine("2. list all sales between specified months and years");
+        //                            Console.WriteLine("3. average sales for a month between specified year range");
+        //                            Console.WriteLine("4. average sale by month for specified year");
+        //==============ALL THE TOTAL METHODS===============//  
 
 
 
