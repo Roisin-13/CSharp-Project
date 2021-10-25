@@ -72,6 +72,18 @@ namespace Sales.Sales
         {
             return repository.YearByMonthAverage(y4);
         }
+        //-----month of a year that made the most sales ------//
+        internal double? HighestMonthByYear(int y5)
+        {
+            return repository.HighestMonthByYear(y5);
+        }
+        //-----month of a year that made the least sales ------//
+        internal double? LowestMonthByYear(int y6)
+        {
+            return repository.LowestMonthByYear(y6);
+        }
+
+
 
     }
 }

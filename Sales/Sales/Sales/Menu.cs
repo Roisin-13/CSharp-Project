@@ -139,7 +139,9 @@ namespace Sales.Sales
                                         Console.WriteLine("2. list all sales between specified months and years");
                                         Console.WriteLine("3. average sales for a month between specified year range");
                                         Console.WriteLine("4. average sale by month for specified year");
-                                        Console.WriteLine("5. return to REPORTS MENU");
+                                        Console.WriteLine("5. total of the month of a specified year which made the most sales");
+                                        Console.WriteLine("6. total of the month of a specified year which made the least sales");
+                                        Console.WriteLine("7. return to REPORTS MENU");
                                         Console.WriteLine();
                                         Console.Write("enter number > ");
                                         string input3 = Console.ReadLine();
@@ -153,7 +155,7 @@ namespace Sales.Sales
                                             inMenu3 = true;
                                             continue;
                                         }
-                                        if (id3 > 5)
+                                        if (id3 > 7)
                                         {
                                             Console.WriteLine("Not a valid Menu option");
                                             Console.WriteLine();
@@ -193,6 +195,20 @@ namespace Sales.Sales
                                                 inMenu3 = true;
                                                 break;
                                             case 5:
+                                                controller.HighestMonthByYear();
+                                                Console.WriteLine();
+                                                Console.WriteLine("Press any key to return to Menu");
+                                                Console.ReadLine();
+                                                inMenu3 = true;
+                                                break;
+                                            case 6:
+                                                controller.LowestMonthByYear();
+                                                Console.WriteLine();
+                                                Console.WriteLine("Press any key to return to Menu");
+                                                Console.ReadLine();
+                                                inMenu3 = true;
+                                                break;
+                                            case 7:
                                                 inMenu3 = false;
                                                 continue;
                                         }

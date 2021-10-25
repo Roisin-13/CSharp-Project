@@ -82,7 +82,6 @@ namespace Sales.Sales
             if (!reader.HasRows)
             {
 
-                //Console.WriteLine("No sales for " + y1 + " year");
                 return null;
             }
            
@@ -121,7 +120,6 @@ namespace Sales.Sales
                 }
             if (!reader.HasRows)
             {
-                //Console.WriteLine("No sales " + m2 + "/" + y2);
                 return null;
             }
 
@@ -224,7 +222,6 @@ namespace Sales.Sales
 
             if (!reader.HasRows)
             {
-                //Console.WriteLine("No sales between " + ys1 + " and " + ye1);
                 return null;
             }
             connection.Close();
@@ -238,16 +235,15 @@ namespace Sales.Sales
         {
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
-            command.CommandText = $"select * from sales where date_of_sale between '{ys2}-{ms2}-01' and last_day('{ye2}-{me2}-01') order by date_of_sale";
-            //command.CommandText = "select * from sales where date_of_sale between '@ys2-@ms2-01' and last_day('@ye2-@me2-01')";
-            //command.Parameters.AddWithValue("@ys2", ys2);
-            //command.Parameters.AddWithValue("@ye2", ye2);
-            //command.Parameters.AddWithValue("@ms2", ms2);
-            //command.Parameters.AddWithValue("@me2", me2);
+            command.CommandText = "select * from sales where date_of_sale between @start and last_day(@end) order by date_of_sale";
+            command.Parameters.AddWithValue("@start", $"{ys2}-{ms2}-01");
+            command.Parameters.AddWithValue("@end", $"{ye2}-{me2}-01");
+         
             MySqlDataReader reader = command.ExecuteReader();
 
             IList<SaleModel> sales = new List<SaleModel>();
             DateTimeFormatInfo monthNameStart = new DateTimeFormatInfo();
+            
             string getms2 = monthNameStart.GetMonthName(ms2);
             DateTimeFormatInfo monthNameEnd = new DateTimeFormatInfo();
             string getme2 = monthNameEnd.GetMonthName(me2);
@@ -268,11 +264,7 @@ namespace Sales.Sales
 
             if (!reader.HasRows)
             {
-                //DateTimeFormatInfo monthNameStart = new DateTimeFormatInfo();
-                //string getms2 = monthNameStart.GetMonthName(ms2);
-                //DateTimeFormatInfo monthNameEnd = new DateTimeFormatInfo();
-                //string getme2 = monthNameEnd.GetMonthName(me2);
-                //Console.WriteLine("No sales between " + getms2  + "  " + ys2 +  " and " + getme2 + " " + ye2);
+                
                 return null;
             }
             connection.Close();
@@ -352,6 +344,78 @@ namespace Sales.Sales
 
 
         }
+        //-----month of a year that made the most sales ------//
+        internal double? HighestMonthByYear(int y5)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+
+            command.CommandText = "select extract(month from date_of_sale) as month, sum(price * quantity) as total from sales where year(date_of_sale)=@y5 group by month order by total desc;";
+
+            command.Parameters.AddWithValue("@y5", y5);
+
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+            double total = 0;
+
+            if(reader.Read())
+            {
+                total += Convert.ToDouble(reader["total"]);
+                int month = 0;
+                month += Convert.ToInt32(reader["month"]);
+                DateTimeFormatInfo monthName = new DateTimeFormatInfo();
+                string getMonthName = monthName.GetMonthName(month);
+                Console.WriteLine("Month with the highest sales for year " + y5 + " is month " + getMonthName + " with: £ " + total);
+
+            }
+            if(!reader.HasRows)
+            {
+                Console.WriteLine("No sales for " + y5 + " year");
+
+            }
+            connection.Close();
+            return (double)total;
+
+        }
+        //-----month of a year that made the least sales ------//
+        internal double? LowestMonthByYear(int y6)
+        {
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+
+            command.CommandText = "select extract(month from date_of_sale) as month, sum(price * quantity) as total from sales where year(date_of_sale)=@y6 group by month order by total asc";
+
+            command.Parameters.AddWithValue("@y6", y6);
+
+            command.Prepare();
+
+            MySqlDataReader reader = command.ExecuteReader();
+            double total = 0;
+
+            if (reader.Read())
+            {
+                total += Convert.ToDouble(reader["total"]);
+                int month = 0;
+                month += Convert.ToInt32(reader["month"]);
+                DateTimeFormatInfo monthName = new DateTimeFormatInfo();
+                string getMonthName = monthName.GetMonthName(month);
+                Console.WriteLine("Month with the lowest sales for year " + y6 + " is month " + getMonthName + " with: £ " + total);
+
+            }
+            if (!reader.HasRows)
+            {
+                Console.WriteLine("No sales for " + y6 + " year");
+
+            }
+            connection.Close();
+            return (double)total;
+
+        }
+
+
+
+
 
 
 
