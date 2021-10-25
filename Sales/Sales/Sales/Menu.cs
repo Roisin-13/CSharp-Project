@@ -21,16 +21,22 @@ namespace Sales.Sales
 
         public void firstMenu()
         {
-            Console.Clear();
-            Console.WriteLine("====MAIN MENU====");
-            Console.WriteLine("Please pick a menu option:");
-            Console.WriteLine("1. Data-Entry");
-            Console.WriteLine("2. Reports");
-            Console.WriteLine("3. Quit");
+            //Console.Clear();
+            //Console.WriteLine("====MAIN MENU====");
+            //Console.WriteLine("Please pick a menu option:");
+            //Console.WriteLine("1. Data-Entry");
+            //Console.WriteLine("2. Reports");
+            //Console.WriteLine("3. QUIT");
 
             bool inMenu = true;
             while (inMenu)
             {
+                Console.Clear();
+                Console.WriteLine("====MAIN MENU====");
+                Console.WriteLine("Please pick a menu option:");
+                Console.WriteLine("1. Data-Entry");
+                Console.WriteLine("2. Reports");
+                Console.WriteLine("3. QUIT");
                 Console.WriteLine();
                 Console.Write("enter number > ");
                 string input = Console.ReadLine();
@@ -49,20 +55,33 @@ namespace Sales.Sales
                 {
                     case 1:
                         controller.Create();
+                        Console.WriteLine();
+                        Console.WriteLine("Press any key to return to Menu");
+                        Console.ReadLine();
+                        inMenu = true;
                         break;
                     case 2:
-                        Console.Clear();
-                        Console.WriteLine("----Report Menu----");
-                        Console.WriteLine("Please pick a menu option:");
-                        Console.WriteLine("1. list sales by year");
-                        Console.WriteLine("2. list sales by month and year");
-                        Console.WriteLine("3. total sales by year");
-                        Console.WriteLine("4. total sales by month and year");
-                        Console.WriteLine("5. Enhanced Reports");
-                        Console.WriteLine("6. Return to Main Menu");
+                        //Console.Clear();
+                        //Console.WriteLine("----Report Menu----");
+                        //Console.WriteLine("Please pick a menu option:");
+                        //Console.WriteLine("1. list sales by year");
+                        //Console.WriteLine("2. list sales by month and year");
+                        //Console.WriteLine("3. total sales by year");
+                        //Console.WriteLine("4. total sales by month and year");
+                        //Console.WriteLine("5. Enhanced Reports");
+                        //Console.WriteLine("6. Return to Main Menu");
                         bool inMenu2 = true;
                         while (inMenu2)
                         {
+                            Console.Clear();
+                            Console.WriteLine("----REPORT MENU----");
+                            Console.WriteLine("Please pick a menu option:");
+                            Console.WriteLine("1. list sales by year");
+                            Console.WriteLine("2. list sales by month and year");
+                            Console.WriteLine("3. total sales by year");
+                            Console.WriteLine("4. total sales by month and year");
+                            Console.WriteLine("5. ENHANCED REPORTS");
+                            Console.WriteLine("6. Return to MAIN MENU");
                             Console.WriteLine();
                             Console.Write("enter number > ");
                             string input2 = Console.ReadLine();
@@ -81,28 +100,52 @@ namespace Sales.Sales
                             {
                                 case 1:
                                     controller.ReadByYear();
+                                    Console.WriteLine();
+                                    Console.WriteLine("Press any key to return to Menu");
+                                    Console.ReadLine();
+                                    inMenu2 = true;
                                     break;
                                 case 2:
                                     controller.ReadByYearMonth();
+                                    Console.WriteLine();
+                                    Console.WriteLine("Press any key to return to Menu");
+                                    Console.ReadLine();
+                                    inMenu2 = true;
                                     break;
                                 case 3:
                                     controller.TotalByYear();
+                                    Console.WriteLine();
+                                    Console.WriteLine("Press any key to return to Menu");
+                                    Console.ReadLine();
+                                    inMenu2 = true;
                                     break;
                                 case 4:
                                     controller.TotalByYearMonth();
+                                    Console.WriteLine();
+                                    Console.WriteLine("Press any key to return to Menu");
+                                    Console.ReadLine();
+                                    inMenu2 = true;
                                     break;
                                 case 5:
-                                    Console.Clear();
-                                    Console.WriteLine("----Enhanced Reports----");
-                                    Console.WriteLine("Please pick a menu option:");
-                                    Console.WriteLine("1. list all sales between specified year range");
-                                    Console.WriteLine("2. list all sales between specified months and years");
-                                    Console.WriteLine("3. average sales for a month between specified year range");
-                                    Console.WriteLine("4. average sale by month for specified year");
-                                    Console.WriteLine("5. return to Reports Menu");
+                                    //Console.Clear();
+                                    //Console.WriteLine("----Enhanced Reports----");
+                                    //Console.WriteLine("Please pick a menu option:");
+                                    //Console.WriteLine("1. list all sales between specified year range");
+                                    //Console.WriteLine("2. list all sales between specified months and years");
+                                    //Console.WriteLine("3. average sales for a month between specified year range");
+                                    //Console.WriteLine("4. average sale by month for specified year");
+                                    //Console.WriteLine("5. return to Reports Menu");
                                     bool inMenu3 = true;
                                     while (inMenu3)
                                     {
+                                        Console.Clear();
+                                        Console.WriteLine("----ENHANCED REPORTS----");
+                                        Console.WriteLine("Please pick a menu option:");
+                                        Console.WriteLine("1. list all sales between specified year range");
+                                        Console.WriteLine("2. list all sales between specified months and years");
+                                        Console.WriteLine("3. average sales for a month between specified year range");
+                                        Console.WriteLine("4. average sale by month for specified year");
+                                        Console.WriteLine("5. return to REPORTS MENU");
                                         Console.WriteLine();
                                         Console.Write("enter number > ");
                                         string input3 = Console.ReadLine();
@@ -120,20 +163,32 @@ namespace Sales.Sales
                                         switch (id3)
                                         {
                                             case 1:
-                                                //Console.WriteLine("list all sales between specified year range");
                                                 controller.ListBetweenYears();
+                                                Console.WriteLine();
+                                                Console.WriteLine("Press any key to return to Menu");
+                                                Console.ReadLine();
+                                                inMenu3 = true;
                                                 break;
                                             case 2:
-                                                //Console.WriteLine("list all sales between specified months and years");
                                                 controller.ListBetweenYearsMonth();
+                                                Console.WriteLine();
+                                                Console.WriteLine("Press any key to return to Menu");
+                                                Console.ReadLine();
+                                                inMenu3 = true;
                                                 break;
                                             case 3:
-                                                //Console.WriteLine("average sales for a month between specified year range");
                                                 controller.MonthAverage();
+                                                Console.WriteLine();
+                                                Console.WriteLine("Press any key to return to Menu");
+                                                Console.ReadLine();
+                                                inMenu3 = true;
                                                 break;
                                             case 4:
-                                                //Console.WriteLine("average sale by month for specified year");
                                                 controller.YearByMonthAverage();
+                                                Console.WriteLine();
+                                                Console.WriteLine("Press any key to return to Menu");
+                                                Console.ReadLine();
+                                                inMenu3 = true;
                                                 break;
                                             case 5:
                                                 inMenu3 = false;
@@ -142,14 +197,14 @@ namespace Sales.Sales
                                         
                                     }
                                     Console.Clear();
-                                    Console.WriteLine("----Report Menu----");
+                                    Console.WriteLine("----REPORT MENU----");
                                     Console.WriteLine("Please pick a menu option:");
                                     Console.WriteLine("1. list sales by year");
                                     Console.WriteLine("2. list sales by month and year");
                                     Console.WriteLine("3. total sales by year");
                                     Console.WriteLine("4. total sales by month and year");
-                                    Console.WriteLine("5. Enhanced Reports");
-                                    Console.WriteLine("6. Return to Main Menu");
+                                    Console.WriteLine("5. ENHANCED REPORTS");
+                                    Console.WriteLine("6. Return to MAIN MENU");
                                     break;
                                 case 6:
                                     inMenu2 = false;
@@ -161,7 +216,7 @@ namespace Sales.Sales
                         Console.WriteLine("Please pick a menu option:");
                         Console.WriteLine("1. Data-Entry");
                         Console.WriteLine("2. Reports");
-                        Console.WriteLine("3. Quit");
+                        Console.WriteLine("3. QUIT");
                         break;
                     case 3:
                         inMenu = false;
