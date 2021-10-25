@@ -160,10 +160,10 @@ namespace Sales.Sales
         public void ListBetweenYears()
         {
 
-            Console.WriteLine("Please enter start Year that you want to list items from (YYYY):");
+            Console.WriteLine("Please enter START YEAR that you want to list items from (YYYY):");
             string inputYearStart = Console.ReadLine();
             var yearstart = int.TryParse(inputYearStart, out int ys1);
-            Console.WriteLine("Please enter end Year that you want to list items from (YYYY):");
+            Console.WriteLine("Please enter END YEAR that you want to list items from (YYYY):");
             string inputYearEnd = Console.ReadLine();
             var yearend = int.TryParse(inputYearEnd, out int ye1);
             IEnumerable<SaleModel> sales = services.ListBetweenYears(ys1, ye1);
@@ -186,19 +186,20 @@ namespace Sales.Sales
         public void ListBetweenYearsMonth()
         {
 
-            Console.WriteLine("Please enter start Year that you want to list items from (YYYY):");
+            Console.WriteLine("Please enter START YEAR that you want to list items from (YYYY):");
             string inputYearStart = Console.ReadLine();
             var yearstart = int.TryParse(inputYearStart, out int ys2);
-            Console.WriteLine("Please enter start Month that you want to list items from (MM):");
+            Console.WriteLine("Please enter START MONTH that you want to list items from (MM):");
             string inputMonthStart = Console.ReadLine();
             var monthstart = int.TryParse(inputMonthStart, out int ms2);
-            Console.WriteLine("Please enter end Year that you want to list items from (YYYY):");
+            Console.WriteLine("Please enter END YEAR that you want to list items from (YYYY):");
             string inputYearEnd = Console.ReadLine();
             var yearend = int.TryParse(inputYearEnd, out int ye2);
-            Console.WriteLine("Please enter end Month that you want to list items from (MM):");
+            Console.WriteLine("Please enter END MONTH that you want to list items from (MM):");
             string inputMonthEnd = Console.ReadLine();
             var monthend = int.TryParse(inputMonthEnd, out int me2);
             IEnumerable<SaleModel> sales = services.ListBetweenYearsMonth(ys2, ye2, ms2, me2);
+
             if (sales == null)
             {
                 Console.WriteLine("No Sales");
@@ -218,10 +219,10 @@ namespace Sales.Sales
         public void MonthAverage()
         {
 
-            Console.WriteLine("Please enter start Year that you want to average sales from (YYYY):");
+            Console.WriteLine("Please enter START YEAR that you want to average sales from (YYYY):");
             string inputYearStart = Console.ReadLine();
             var yearStart = int.TryParse(inputYearStart, out int ys3);
-            Console.WriteLine("Please enter end Year that you want average sales from (YYYY):");
+            Console.WriteLine("Please enter END YEAR that you want average sales from (YYYY):");
             string inputYearEnd = Console.ReadLine();
             var yearEnd = int.TryParse(inputYearEnd, out int ye3);
             Console.WriteLine("Please enter Month of items you want average sales from (MM):");

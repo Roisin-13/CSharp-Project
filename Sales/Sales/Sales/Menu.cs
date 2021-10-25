@@ -21,13 +21,6 @@ namespace Sales.Sales
 
         public void firstMenu()
         {
-            //Console.Clear();
-            //Console.WriteLine("====MAIN MENU====");
-            //Console.WriteLine("Please pick a menu option:");
-            //Console.WriteLine("1. Data-Entry");
-            //Console.WriteLine("2. Reports");
-            //Console.WriteLine("3. QUIT");
-
             bool inMenu = true;
             while (inMenu)
             {
@@ -43,12 +36,22 @@ namespace Sales.Sales
                 var a = int.TryParse(input, out int id);
                 if (!a)
                 {
-                    Console.WriteLine("Please enter Menu option");
+                    Console.WriteLine("You must enter a Menu option");
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to Menu");
+                    Console.ReadLine();
+                    inMenu = true;
+                    //break;
                     continue;
                 }
                 if (id >= 5)
                 {
-                    Console.WriteLine("Invalid Input");
+                    Console.WriteLine("Not a valid Menu option");
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to Menu");
+                    Console.ReadLine();
+                    inMenu = true;
+                    //break;
                     continue;
                 }
                 switch (id)
@@ -61,15 +64,6 @@ namespace Sales.Sales
                         inMenu = true;
                         break;
                     case 2:
-                        //Console.Clear();
-                        //Console.WriteLine("----Report Menu----");
-                        //Console.WriteLine("Please pick a menu option:");
-                        //Console.WriteLine("1. list sales by year");
-                        //Console.WriteLine("2. list sales by month and year");
-                        //Console.WriteLine("3. total sales by year");
-                        //Console.WriteLine("4. total sales by month and year");
-                        //Console.WriteLine("5. Enhanced Reports");
-                        //Console.WriteLine("6. Return to Main Menu");
                         bool inMenu2 = true;
                         while (inMenu2)
                         {
@@ -88,12 +82,20 @@ namespace Sales.Sales
                             var a2 = int.TryParse(input2, out int id2);
                             if (!a2)
                             {
-                                Console.WriteLine("Please enter Menu option");
+                                Console.WriteLine("You must enter a Menu option");
+                                Console.WriteLine();
+                                Console.WriteLine("Press any key to return to Menu");
+                                Console.ReadLine();
+                                inMenu2 = true;
                                 continue;
                             }
                             if (id2 > 6)
                             {
-                                Console.WriteLine("Invalid Input");
+                                Console.WriteLine("Not a valid Menu option");
+                                Console.WriteLine();
+                                Console.WriteLine("Press any key to return to Menu");
+                                Console.ReadLine();
+                                inMenu2 = true;
                                 continue;
                             }
                             switch (id2)
@@ -127,14 +129,6 @@ namespace Sales.Sales
                                     inMenu2 = true;
                                     break;
                                 case 5:
-                                    //Console.Clear();
-                                    //Console.WriteLine("----Enhanced Reports----");
-                                    //Console.WriteLine("Please pick a menu option:");
-                                    //Console.WriteLine("1. list all sales between specified year range");
-                                    //Console.WriteLine("2. list all sales between specified months and years");
-                                    //Console.WriteLine("3. average sales for a month between specified year range");
-                                    //Console.WriteLine("4. average sale by month for specified year");
-                                    //Console.WriteLine("5. return to Reports Menu");
                                     bool inMenu3 = true;
                                     while (inMenu3)
                                     {
@@ -152,12 +146,20 @@ namespace Sales.Sales
                                         var a3 = int.TryParse(input3, out int id3);
                                         if (!a3)
                                         {
-                                            Console.WriteLine("Please enter Menu option");
+                                            Console.WriteLine("You must enter a Menu option");
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press any key to return to Menu");
+                                            Console.ReadLine();
+                                            inMenu3 = true;
                                             continue;
                                         }
                                         if (id3 > 5)
                                         {
-                                            Console.WriteLine("Invalid Input");
+                                            Console.WriteLine("Not a valid Menu option");
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press any key to return to Menu");
+                                            Console.ReadLine();
+                                            inMenu3 = true;
                                             continue;
                                         }
                                         switch (id3)
