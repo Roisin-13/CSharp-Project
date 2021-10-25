@@ -130,7 +130,7 @@ namespace Sales.Sales
             if (year)
             {
 
-                double? sales3 = services.TotalByYear(y3);
+                double? sales = services.TotalByYear(y3);
                
 
             }
@@ -149,15 +149,12 @@ namespace Sales.Sales
             if (year && month)
             {
 
-                double? sales4 = services.TotalByYearMonth(y4, m4);
+                double? sales = services.TotalByYearMonth(y4, m4);
 
             }
 
         }
 
-        //                            Console.WriteLine("2. list all sales between specified months and years");
-        //                            Console.WriteLine("3. average sales for a month between specified year range");
-        //                            Console.WriteLine("4. average sale by month for specified year");
         //==============ALL THE EXTRA METHODS===============//  
         //-----list between years------//
         public void ListBetweenYears()
@@ -184,6 +181,39 @@ namespace Sales.Sales
                 }
             }
         }
+
+        //-----list all sales between specified months and years------//
+        public void ListBetweenYearsMonth()
+        {
+
+            Console.WriteLine("Please enter start Year that you want to list items from (YYYY):");
+            string inputYearStart = Console.ReadLine();
+            var yearstart = int.TryParse(inputYearStart, out int ys2);
+            Console.WriteLine("Please enter start Month that you want to list items from (MM):");
+            string inputMonthStart = Console.ReadLine();
+            var monthstart = int.TryParse(inputMonthStart, out int ms2);
+            Console.WriteLine("Please enter end Year that you want to list items from (YYYY):");
+            string inputYearEnd = Console.ReadLine();
+            var yearend = int.TryParse(inputYearEnd, out int ye2);
+            Console.WriteLine("Please enter end Month that you want to list items from (MM):");
+            string inputMonthEnd = Console.ReadLine();
+            var monthend = int.TryParse(inputMonthEnd, out int me2);
+            IEnumerable<SaleModel> sales = services.ListBetweenYearsMonth(ys2, ye2, ms2, me2);
+            if (sales == null)
+            {
+                Console.WriteLine("No Sales");
+
+            }
+            else
+            {
+                foreach (var item in sales)
+                {
+                    Console.WriteLine(item);
+
+                }
+            }
+        }
+
         //-----average sales for a month between specified year range------//
         public void MonthAverage()
         {
@@ -200,11 +230,12 @@ namespace Sales.Sales
             if (yearStart && yearEnd && month)
             {
 
-                double? sales4 = services.MonthAverage(ys3, ye3, m3);
+                double? sales = services.MonthAverage(ys3, ye3, m3);
 
             }
 
         }
+
         //-----average sales for by month for a year------//
         public void YearByMonthAverage()
         {
@@ -215,7 +246,7 @@ namespace Sales.Sales
             if (year)
             {
 
-                double? sales3 = services.YearByMonthAverage(y4);
+                double? sales = services.YearByMonthAverage(y4);
 
 
             }

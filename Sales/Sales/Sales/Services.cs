@@ -57,6 +57,11 @@ namespace Sales.Sales
         {
             return repository.ListBetweenYears(ys1, ye1);
         }
+        //-----list all sales between specified months and years------//
+        internal IEnumerable<SaleModel> ListBetweenYearsMonth(int ys2, int ye2, int ms2, int me2)
+        {
+            return repository.ListBetweenYearsMonth(ys2, ye2, ms2, me2);
+        }
         //-----average sales for a month between specified year range------//
         internal double? MonthAverage(int ys3, int ye3, int m3)
         {

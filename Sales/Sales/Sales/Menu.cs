@@ -124,7 +124,8 @@ namespace Sales.Sales
                                                 controller.ListBetweenYears();
                                                 break;
                                             case 2:
-                                                Console.WriteLine("list all sales between specified months and years");
+                                                //Console.WriteLine("list all sales between specified months and years");
+                                                controller.ListBetweenYearsMonth();
                                                 break;
                                             case 3:
                                                 //Console.WriteLine("average sales for a month between specified year range");

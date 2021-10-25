@@ -24,7 +24,7 @@ namespace Sales.Utils
             AllowBatch = true,
             AllowLoadLocalInfileInPath = "./",
             AllowLoadLocalInfile = false,
-            ConnectionTimeout = 30
+            ConnectionTimeout = 100
         };
 
         //--connection object, takes string builder to open connection to database
