@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sales.Exceptions
 {
-    class ItemNotFoundException : Exception
+    class FormatExceptionStrings : Exception
     {
-        public ItemNotFoundException() : base()
+        public FormatExceptionStrings() : base()
         {
         }
 
-        public ItemNotFoundException(string message) : base(message)
+        public FormatExceptionStrings(string message) : base(message)
         {
         }
     }

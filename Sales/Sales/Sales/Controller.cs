@@ -31,12 +31,30 @@ namespace Sales.Sales
             }
             Console.WriteLine("Please enter quantity of product:");
             var quantityInput = Console.ReadLine();
-            while (string.IsNullOrEmpty(quantityInput) || Convert.ToInt32(quantityInput) < 0)
+            try
             {
-                Console.WriteLine("You must enter a valid quantity of product:");
-                quantityInput = Console.ReadLine();
-                
+                //var quantityInput = Console.ReadLine();
+                while (string.IsNullOrEmpty(quantityInput) || Convert.ToInt32(quantityInput) < 0)
+                {
+                    Console.WriteLine("You must enter a valid quantity of product:");
+                    quantityInput = Console.ReadLine();
+
+                }
+                //var quantity = int.Parse(quantityInput);
             }
+            catch (FormatException)
+            {
+                while (!int.TryParse(quantityInput, out _)) { 
+                    Console.WriteLine("that is not a number");
+                    quantityInput = Console.ReadLine();
+                }
+            }
+            //while (string.IsNullOrEmpty(quantityInput) || Convert.ToInt32(quantityInput) < 0)
+            //{
+            //    Console.WriteLine("You must enter a valid quantity of product:");
+            //    quantityInput = Console.ReadLine();
+                
+            //}
             var quantity = int.Parse(quantityInput);
             Console.WriteLine("Please enter price of product (in pounds and pence):");
             var priceInput = Console.ReadLine();
