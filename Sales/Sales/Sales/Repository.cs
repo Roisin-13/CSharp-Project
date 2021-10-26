@@ -67,7 +67,6 @@ namespace Sales.Sales
             IList<SaleModel> sales = new List<SaleModel>();
 
             Console.WriteLine("Sales for " + y1 + " year");
-
             while (reader.Read()) { 
                 int id = reader.GetFieldValue<int>("id");
                 string name = reader.GetFieldValue<string>("name");
@@ -78,11 +77,12 @@ namespace Sales.Sales
                     SaleModel sale = new SaleModel()
                     { ID = id, Name = name, Quantity = quantity, Price = price, Date = date };
                     sales.Add(sale);
-                }
+            }
             if (!reader.HasRows)
             {
-
+                connection.Close();
                 return null;
+                
             }
            
             connection.Close();
@@ -120,6 +120,7 @@ namespace Sales.Sales
                 }
             if (!reader.HasRows)
             {
+                connection.Close();
                 return null;
             }
 
@@ -222,6 +223,7 @@ namespace Sales.Sales
 
             if (!reader.HasRows)
             {
+                connection.Close();
                 return null;
             }
             connection.Close();
@@ -264,7 +266,7 @@ namespace Sales.Sales
 
             if (!reader.HasRows)
             {
-                
+                connection.Close();
                 return null;
             }
             connection.Close();
@@ -371,6 +373,7 @@ namespace Sales.Sales
             }
             if(!reader.HasRows)
             {
+                connection.Close();
                 Console.WriteLine("No sales for " + y5 + " year");
 
             }
@@ -405,6 +408,7 @@ namespace Sales.Sales
             }
             if (!reader.HasRows)
             {
+                connection.Close();
                 Console.WriteLine("No sales for " + y6 + " year");
 
             }
