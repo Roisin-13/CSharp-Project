@@ -45,7 +45,7 @@ namespace Sales.Sales
             }
             catch (FormatException)
             {
-                while (!int.TryParse(quantityInput, out _)) { 
+                while (!int.TryParse(quantityInput, out _) || Convert.ToInt32(quantityInput) < 0) { 
                     Console.WriteLine("You must enter a valid quantity of product:");
                     quantityInput = Console.ReadLine();
                 }
@@ -63,7 +63,7 @@ namespace Sales.Sales
             }
             catch (FormatException)
             {
-                while (!double.TryParse(priceInput, out _))
+                while (!double.TryParse(priceInput, out _) || Convert.ToDouble(priceInput) < 0)
                 {
                     Console.WriteLine("You must enter a valid price for product:");
                     priceInput = Console.ReadLine();
@@ -105,15 +105,15 @@ namespace Sales.Sales
             try { 
             while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
             {
-                Console.WriteLine("You must enter a valid year value");
+                Console.WriteLine("You must enter a valid year value for items you want to list (YYYY):");
                 inputYear = Console.ReadLine();
             }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value:");
+                    Console.WriteLine("You must enter a valid year value for items you want to list (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
@@ -144,15 +144,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value for items you want to list (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value:");
+                    Console.WriteLine("You must enter a valid year value for items you want to list (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
@@ -164,15 +164,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputMonth) || Convert.ToInt32(inputMonth) > 12 || Convert.ToInt32(inputMonth) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input that you want to list items from (MM):");
+                    Console.WriteLine("You must enter valid month input that you want to list items from (MM):");
                     inputMonth = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputMonth, out _))
+                while (!int.TryParse(inputMonth, out _) || Convert.ToInt32(inputMonth) > 12 || Convert.ToInt32(inputMonth) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input that you want to list items from (MM):");
+                    Console.WriteLine("You must enter valid month input that you want to list items from (MM):");
                     inputMonth = Console.ReadLine();
                 }
             }
@@ -208,19 +208,20 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value for sale you want total of (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value for sale you want total of (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
             var year = int.TryParse(inputYear, out int y3);
+           
             if (year)
             {
 
@@ -242,16 +243,16 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value for sale you want total of (YYYY):");
                     inputYear = Console.ReadLine();
                 }
                 
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value for sale you want total of (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
@@ -263,15 +264,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputMonth) || Convert.ToInt32(inputMonth) > 12 || Convert.ToInt32(inputMonth) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for month that you want total from (MM):");
+                    Console.WriteLine("You must enter valid month input for month that you want total from (MM):");
                     inputMonth = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputMonth, out _))
+                while (!int.TryParse(inputMonth, out _) || Convert.ToInt32(inputMonth) > 12 || Convert.ToInt32(inputMonth) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for month that you want total from (MM):");
+                    Console.WriteLine("You must enter valid month input for month that you want total from (MM):");
                     inputMonth = Console.ReadLine();
                 }
             }
@@ -299,15 +300,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYearStart) || Convert.ToInt32(inputYearStart) < 1900 || Convert.ToInt32(inputYearStart) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid START YEAR value that you want to list items from (YYYY):");
                     inputYearStart = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYearStart, out _))
+                while (!int.TryParse(inputYearStart, out _) || Convert.ToInt32(inputYearStart) < 1900 || Convert.ToInt32(inputYearStart) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid START YEAR value that you want to list items from (YYYY):");
                     inputYearStart = Console.ReadLine();
                 }
             }
@@ -319,15 +320,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYearEnd) || Convert.ToInt32(inputYearEnd) < 1900 || Convert.ToInt32(inputYearEnd) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid END YEAR value that you want to list items from (YYYY):");
                     inputYearEnd = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYearEnd, out _))
+                while (!int.TryParse(inputYearEnd, out _) || Convert.ToInt32(inputYearEnd) < 1900 || Convert.ToInt32(inputYearEnd) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid END YEAR value that you want to list items from (YYYY):");
                     inputYearEnd = Console.ReadLine();
                 }
             }
@@ -361,15 +362,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYearStart) || Convert.ToInt32(inputYearStart) < 1900 || Convert.ToInt32(inputYearStart) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid START YEAR value that you want to list items from (YYYY):");
                     inputYearStart = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYearStart, out _))
+                while (!int.TryParse(inputYearStart, out _) || Convert.ToInt32(inputYearStart) < 1900 || Convert.ToInt32(inputYearStart) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a START YEAR value that you want to list items from (YYYY):");
                     inputYearStart = Console.ReadLine();
                 }
             }
@@ -381,15 +382,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputMonthStart) || Convert.ToInt32(inputMonthStart) > 12 || Convert.ToInt32(inputMonthStart) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for START MONTH that you want to list items from (MM):");
+                    Console.WriteLine("You must enter valid month input for START MONTH that you want to list items from (MM):");
                     inputMonthStart = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputMonthStart, out _))
+                while (!int.TryParse(inputMonthStart, out _) || Convert.ToInt32(inputMonthStart) > 12 || Convert.ToInt32(inputMonthStart) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for START MONTH that you want to list items from (MM):");
+                    Console.WriteLine("You must enter valid month input for START MONTH that you want to list items from (MM):");
                     inputMonthStart = Console.ReadLine();
                 }
             }
@@ -401,15 +402,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYearEnd) || Convert.ToInt32(inputYearEnd) < 1900 || Convert.ToInt32(inputYearEnd) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid END YEAR value that you want to list items from (YYYY):");
                     inputYearEnd = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYearEnd, out _))
+                while (!int.TryParse(inputYearEnd, out _) || Convert.ToInt32(inputYearEnd) < 1900 || Convert.ToInt32(inputYearEnd) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid END YEAR value that you want to list items from (YYYY):");
                     inputYearEnd = Console.ReadLine();
                 }
             }
@@ -421,15 +422,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputMonthEnd) || Convert.ToInt32(inputMonthEnd) > 12 || Convert.ToInt32(inputMonthEnd) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for END MONTH that you want to list items from (MM):");
+                    Console.WriteLine("You must enter valid month input for END MONTH that you want to list items from (MM):");
                     inputMonthEnd = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputMonthEnd, out _))
+                while (!int.TryParse(inputMonthEnd, out _) || Convert.ToInt32(inputMonthEnd) > 12 || Convert.ToInt32(inputMonthEnd) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for END MONTH that you want to list items from (MM):");
+                    Console.WriteLine("You must enter valid month input for END MONTH that you want to list items from (MM):");
                     inputMonthEnd = Console.ReadLine();
                 }
             }
@@ -464,15 +465,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYearStart) || Convert.ToInt32(inputYearStart) < 1900 || Convert.ToInt32(inputYearStart) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year  value");
+                    Console.WriteLine("You must enter a valid START YEAR value that you want to average sales from (YYYY):");
                     inputYearStart = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYearStart, out _))
+                while (!int.TryParse(inputYearStart, out _) || Convert.ToInt32(inputYearStart) < 1900 || Convert.ToInt32(inputYearStart) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid START YEAR value that you want to average sales from (YYYY):");
                     inputYearStart = Console.ReadLine();
                 }
             }
@@ -484,15 +485,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYearEnd) || Convert.ToInt32(inputYearEnd) < 1900 || Convert.ToInt32(inputYearEnd) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid END YEAR value that you want to average sales from (YYYY):");
                     inputYearEnd = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYearEnd, out _))
+                while (!int.TryParse(inputYearEnd, out _) || Convert.ToInt32(inputYearEnd) < 1900 || Convert.ToInt32(inputYearEnd) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid END YEAR value that you want to average sales from (YYYY):");
                     inputYearEnd = Console.ReadLine();
                 }
             }
@@ -504,15 +505,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputMonth) || Convert.ToInt32(inputMonth) > 12 || Convert.ToInt32(inputMonth) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for month that you want average sales from (MM):");
+                    Console.WriteLine("You must enter valid month input for month that you want average sales from (MM):");
                     inputMonth = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputMonth, out _))
+                while (!int.TryParse(inputMonth, out _) || Convert.ToInt32(inputMonth) > 12 || Convert.ToInt32(inputMonth) < 0)
                 {
-                    Console.WriteLine("Please enter valid month input for month that you want average sales from (MM):");
+                    Console.WriteLine("You must enter valid month input for month that you want average sales from (MM):");
                     inputMonth = Console.ReadLine();
                 }
             }
@@ -539,15 +540,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value that you want month average from (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value that you want month average from (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
@@ -574,15 +575,15 @@ namespace Sales.Sales
             {
                 while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value that you want highest month total from (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value that you want higest month total from (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
@@ -603,21 +604,21 @@ namespace Sales.Sales
             DateTime dateNow = DateTime.Now;
             int yearNow = dateNow.Year;
             //--input year
-            Console.WriteLine("Please enter Year that you want highest month total from (YYYY):");
+            Console.WriteLine("Please enter Year that you want lowest month total from (YYYY):");
             string inputYear = Console.ReadLine();
             try
             {
                 while (string.IsNullOrEmpty(inputYear) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value that you want lowest month total from (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
             catch (FormatException)
             {
-                while (!int.TryParse(inputYear, out _))
+                while (!int.TryParse(inputYear, out _) || Convert.ToInt32(inputYear) < 1900 || Convert.ToInt32(inputYear) > (Convert.ToInt32(yearNow) + 100))
                 {
-                    Console.WriteLine("You must enter a valid year value");
+                    Console.WriteLine("You must enter a valid year value that you want lowest month total from (YYYY):");
                     inputYear = Console.ReadLine();
                 }
             }
