@@ -1,13 +1,13 @@
 # **CSharp-Project**
 
-####To use please fork, and clone to personal device. You will need Workbench, and visual-studios 2019.  
-####Nuget package manager will also need to be installed (in tools menu) type in "Install-Package MySql.Data" in the terminal in vs.  
-####Schema.sql properties have to be changed - set build action as "content", and copy to output directory to "copy always".  
-####Please also create sales database in workbench.  
-####Check mySqlUtils, if you need to change any settings.  
+#### To use please fork, and clone to personal device. You will need Workbench, and visual-studios 2019.  
+#### Nuget package manager will also need to be installed (in tools menu) type in "Install-Package MySql.Data" in the terminal in vs.  
+#### Schema.sql properties have to be changed - set build action as "content", and copy to output directory to "copy always".  
+#### Please also create sales database in workbench.  
+#### Check mySqlUtils, if you need to change any settings.  
   
     
-####Date for sales input is set from 1900 - hundred years in the future - can change in controller.
+#### Date for sales input is set from 1900 - hundred years in the future - can change in controller.
 
 
 
