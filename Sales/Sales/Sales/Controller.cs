@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 using System.IO;
 using Sales.Utils;
-//using Sales.Exceptions;
+
 
 namespace Sales.Sales
 {
@@ -71,11 +71,15 @@ namespace Sales.Sales
             }
             var price = double.Parse(priceInput);
             //--date input
-            Console.WriteLine("Please enter date product was purchased (DD/MM/YYYY):");
-            Console.WriteLine("If input incorrectly, or blank - will default to todays date");
+            Console.WriteLine("Please enter date product was purchased with range 1900 - this date plus 100 years (DD/MM/YYYY):");
+            Console.WriteLine("WARNING: If input incorrectly, or blank - will default to todays date");
             string dateInput = Console.ReadLine();
             var a = DateTime.TryParse(dateInput, out DateTime date);
-            if (!a)
+            DateTime dateNow = DateTime.Now;
+            DateTime now = dateNow.Date;
+            DateTime hundred = now.AddYears(100);
+            DateTime old = new DateTime(1900, 01, 01);
+            if (!a || Convert.ToDateTime(dateInput).Date < old.Date || Convert.ToDateTime(dateInput) > hundred)
             {
                 date = DateTime.Now;
             }
