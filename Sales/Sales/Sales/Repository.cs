@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using Sales.Utils;
 using System.Data;
-using Sales.Exceptions;
+//using Sales.Exceptions;
 using System.Globalization;
 
 namespace Sales.Sales
