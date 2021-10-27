@@ -1,5 +1,10 @@
 ﻿using Sales.Sales;
 using System;
+using MySql.Data.MySqlClient;
+
+using System.IO;
+using Sales.Utils;
+
 
 namespace Sales
 {
@@ -7,15 +12,17 @@ namespace Sales
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            firstMenu();
-            
-        }
-        public static void firstMenu()
-        {
-            Menu menu = new Menu();
+           
+            MySqlConnection connection = mySqlUtils.GetConnection();
+            Menu menu = new Menu(new Controller(
+                    new Services(
+                        new Repository(connection))));
             menu.firstMenu();
+
+
         }
+   
+       
 
     }
 }
