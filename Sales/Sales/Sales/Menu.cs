@@ -41,7 +41,6 @@ namespace Sales.Sales
                     Console.WriteLine("Press any key to return to Menu");
                     Console.ReadLine();
                     inMenu = true;
-                    //break;
                     continue;
                 }
                 if (id >= 5)
@@ -51,7 +50,6 @@ namespace Sales.Sales
                     Console.WriteLine("Press any key to return to Menu");
                     Console.ReadLine();
                     inMenu = true;
-                    //break;
                     continue;
                 }
                 switch (id)
@@ -214,27 +212,12 @@ namespace Sales.Sales
                                         }
                                         
                                     }
-                                    Console.Clear();
-                                    Console.WriteLine("----REPORT MENU----");
-                                    Console.WriteLine("Please pick a menu option:");
-                                    Console.WriteLine("1. list sales by year");
-                                    Console.WriteLine("2. list sales by month and year");
-                                    Console.WriteLine("3. total sales by year");
-                                    Console.WriteLine("4. total sales by month and year");
-                                    Console.WriteLine("5. ENHANCED REPORTS");
-                                    Console.WriteLine("6. Return to MAIN MENU");
                                     break;
                                 case 6:
                                     inMenu2 = false;
                                     continue;
                             }
                         }
-                        Console.Clear();
-                        Console.WriteLine("====MAIN MENU====");
-                        Console.WriteLine("Please pick a menu option:");
-                        Console.WriteLine("1. Data-Entry");
-                        Console.WriteLine("2. Reports");
-                        Console.WriteLine("3. QUIT");
                         break;
                     case 3:
                         inMenu = false;

@@ -12,12 +12,28 @@ namespace Sales
     {
         static void Main(string[] args)
         {
-           
+
             MySqlConnection connection = mySqlUtils.GetConnection();
-            Menu menu = new Menu(new Controller(
-                    new Services(
-                        new Repository(connection))));
-            menu.firstMenu();
+            try
+            {
+
+                Menu menu = new Menu(new Controller(
+                        new Services(
+                            new Repository(connection))));
+                menu.firstMenu();
+
+            }
+            catch (MySqlException)
+            {
+                Console.WriteLine("Cannot connect to the server");
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Dispose();
+                }
+            }
 
 
         }
