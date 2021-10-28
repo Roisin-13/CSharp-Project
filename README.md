@@ -60,7 +60,8 @@ MySQL queries are required for each of the Reports options, your program will ru
 
 
 ### * Possible improvements for the future
-- Using interfaces for repository, and possibly the menu.  
+- Using interfaces for repository, and possibly the menu. 
+- The repository shouldn't be catching errors due to single responsibility framework (but couldn't get it to work any other way).   
 
 ### * Notable Mentions (i.e. anyone that may have helped/produced valuable input to your project)
  - Morgan Welsh QA tutor (https://github.com/MrWalshyType2).  
