@@ -34,8 +34,18 @@ If the user selects Reports, they must be presented with the following four opti
 - Sales by Month and Year (e.g. List of all sales in January of 2020 printed to the console).
 - Total Sales by Year (e.g. The total amount of sales for 2021, i.e. the sum of all the sales).
 - Total Sales by Year and Month (e.g. The total amount of sales for January of 2021).
-MySQL queries are required for each of the Reports options, your program will run these against the database and retrieve the data to build the relevant report for the end user.
-**IMPORTANT**: 	Some reports would be filtered by the year the user enters, other reports require user to enter a month AND year to filter the reports.
+MySQL queries are required for each of the Reports options, your program will run these against the database and retrieve the data to build the relevant report for the end user.  
+**IMPORTANT**: 	Some reports would be filtered by the year the user enters, other reports require user to enter a month AND year to filter the reports.  
+**Extra Requirements**   
+The following requirements are should haves, these are not required by the client but would be nice to have available in the application:  
+-	Extra reports:  
+o	All sales between two specified years (inclusive)  
+o	All sales between two specified years and months (inclusive)  
+o	The average sales for a given month over a specified amount of years (Example output: July over the past 3 years has averaged £4500 in sales)  
+o	The average sales per month for a specified year (Example output: In 2021, the average amount of sales per month is £4000)  
+o	The month of a specified year that made the most sales (Example output: In 2018, the highest sales were made in February at £7500)  
+o	The month of a specified year that made the least sales  
+
 
 ### * Why are we doing this project?
 - To be able to use C# to read from mySQL database.  
