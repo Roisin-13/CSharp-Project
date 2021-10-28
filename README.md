@@ -71,7 +71,8 @@ o	The month of a specified year that made the least sales
 
 ### * Possible improvements for the future
 - Using interfaces for repository, and possibly the menu. 
-- The repository shouldn't be catching errors due to single responsibility framework (but couldn't get it to work any other way).   
+- The repository shouldn't be catching errors due to single responsibility framework (but couldn't get it to work any other way).  
+- Maybe a delete option to remove sale records.    
 
 ### * Notable Mentions (i.e. anyone that may have helped/produced valuable input to your project)
  - Morgan Welsh QA tutor (https://github.com/MrWalshyType2).  
